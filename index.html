@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>하늘은 맑건만 학습 노트</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'spin-slow': 'spin 3s linear infinite',
+            'fade-in': 'fadeIn 0.5s ease-in-out',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-sky-50 font-sans text-slate-800 pb-12">
+
+  <!-- 헤더 -->
+  <header class="bg-gradient-to-r from-sky-400 to-blue-500 text-white p-8 shadow-md rounded-b-3xl mb-8 relative overflow-hidden">
+    <i data-lucide="cloud" class="absolute top-4 right-10 opacity-30 w-24 h-24"></i>
+    <i data-lucide="cloud" class="absolute bottom-2 left-10 opacity-20 w-16 h-16"></i>
+    <i data-lucide="sun" class="absolute top-6 right-32 text-yellow-300 w-12 h-12 animate-spin-slow"></i>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2 flex items-center gap-3">
+        🌤️ 현덕, 『하늘은 맑건만』
+      </h1>
+      <p class="text-sky-100 text-lg">문기의 마음으로 배우는 소설 속 '갈등'의 모든 것</p>
+    </div>
+  </header>
+
+  <!-- 메인 컨텐츠 영역 -->
+  <main class="max-w-4xl mx-auto px-4">
+    
+    <!-- 네비게이션 탭 -->
+    <div class="flex flex-wrap gap-2 mb-8 justify-center bg-white p-2 rounded-2xl shadow-sm" id="nav-tabs">
+      <button onclick="switchTab('intro')" id="btn-intro" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-sky-500 text-white shadow-md transform scale-105">
+        <i data-lucide="book-open" class="w-[18px] h-[18px]"></i>
+        <span class="hidden sm:inline">갈등이란?</span>
+      </button>
+      <button onclick="switchTab('characters')" id="btn-characters" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700">
+        <i data-lucide="users" class="w-[18px] h-[18px]"></i>
+        <span class="hidden sm:inline">인물 탐구</span>
+      </button>
+      <button onclick="switchTab('plot')" id="btn-plot" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700">
+        <i data-lucide="map" class="w-[18px] h-[18px]"></i>
+        <span class="hidden sm:inline">사건의 흐름</span>
+      </button>
+      <button onclick="switchTab('symbols')" id="btn-symbols" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700">
+        <i data-lucide="lightbulb" class="w-[18px] h-[18px]"></i>
+        <span class="hidden sm:inline">핵심 상징</span>
+      </button>
+      <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700">
+        <i data-lucide="check-circle" class="w-[18px] h-[18px]"></i>
+        <span class="hidden sm:inline">마무리 퀴즈</span>
+      </button>
+    </div>
+
+    <!-- 탭 내용: 갈등이란? -->
+    <div id="section-intro" class="tab-content block animate-fade-in space-y-6">
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100">
+        <h2 class="text-2xl font-bold text-sky-700 mb-4 flex items-center gap-2">
+          🌱 왜 '칡'과 '등나무'일까?
+        </h2>
+        <p class="text-lg leading-relaxed mb-4">
+          '갈등(葛藤)'이라는 단어는 칡(갈)과 등나무(등)가 서로 얽혀있는 모습에서 나왔어요. 
+          소설 속 갈등은 이야기라는 생명체에 마법 같은 긴장감을 불어넣는 <strong>'심장 박동'</strong>과 같답니다!
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-2xl p-6 shadow-sm border border-indigo-100 relative overflow-hidden">
+          <div class="absolute -right-4 -top-4 text-6xl opacity-10">🤔</div>
+          <h3 class="text-xl font-bold text-indigo-700 mb-3">내적 갈등 (내 마음속 전쟁)</h3>
+          <p class="text-slate-700 mb-4">한 인물의 마음속에서 두 가지 이상의 욕망이나 가치가 충돌하는 현상이에요.</p>
+          <div class="bg-white/60 p-4 rounded-xl border border-white">
+            <strong>문기의 상황:</strong><br/>
+            "잘못 받은 거스름돈 10원을 정직하게 돌려줄까? (양심) vs 갖고 싶던 공을 살까? (유혹)"
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-rose-50 to-orange-100 rounded-2xl p-6 shadow-sm border border-rose-100 relative overflow-hidden">
+          <div class="absolute -right-4 -top-4 text-6xl opacity-10">⚡</div>
+          <h3 class="text-xl font-bold text-rose-700 mb-3">외적 갈등 (세상과의 싸움)</h3>
+          <p class="text-slate-700 mb-4">인물과 그를 둘러싼 외부 존재(다른 인물, 사회 등) 사이에서 벌어지는 대립이에요.</p>
+          <div class="bg-white/60 p-4 rounded-xl border border-white">
+            <strong>문기의 상황:</strong><br/>
+            "양심을 지키고 싶은 문기 vs 문기를 협박하며 이익을 챙기려는 수만이의 대립"
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 탭 내용: 인물 탐구 -->
+    <div id="section-characters" class="tab-content hidden animate-fade-in space-y-6">
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100 mb-6 text-center">
+        <h2 class="text-2xl font-bold text-sky-700 mb-2">이야기를 이끄는 두 소년</h2>
+        <p class="text-slate-600">성격이 완전히 다른 두 친구가 만나 어떻게 갈등이 커지는지 확인해 보세요!</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- 문기 카드 -->
+        <div class="bg-white rounded-2xl shadow-lg border-t-8 border-sky-400 overflow-hidden transform transition hover:-translate-y-2">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-slate-800">문기 👦</h3>
+              <span class="bg-sky-100 text-sky-700 text-sm font-bold px-3 py-1 rounded-full">주동 인물</span>
+            </div>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="text-sky-500 shrink-0 w-5 h-5 mt-0.5"></i>
+                <span><strong>성격:</strong> 소심하고 우유부단하지만, 근본적으로 순수하고 양심적임.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="text-sky-500 shrink-0 w-5 h-5 mt-0.5"></i>
+                <span><strong>인물 유형:</strong> 입체적 인물 (잘못을 뉘우치고 고백하며 성장함)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="text-sky-500 shrink-0 w-5 h-5 mt-0.5"></i>
+                <span><strong>특징:</strong> 잘못을 저지른 후 극심한 죄책감에 시달림.</span>
+              </li>
+            </ul>
+            <div class="bg-slate-50 p-4 rounded-xl text-sm italic text-slate-600 border border-slate-100">
+              "떳떳이 하늘을 쳐다볼 수 있는 마음이 갖고 싶다..."
+            </div>
+          </div>
+        </div>
+
+        <!-- 수만 카드 -->
+        <div class="bg-white rounded-2xl shadow-lg border-t-8 border-rose-400 overflow-hidden transform transition hover:-translate-y-2">
+          <div class="p-6">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="text-2xl font-bold text-slate-800">수만 😈</h3>
+              <span class="bg-rose-100 text-rose-700 text-sm font-bold px-3 py-1 rounded-full">반동 인물</span>
+            </div>
+            <ul class="space-y-3 mb-6">
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="text-rose-500 shrink-0 w-5 h-5 mt-0.5"></i>
+                <span><strong>성격:</strong> 대담하고 영악하며, 자신의 이익을 위해 수단을 가리지 않음.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="text-rose-500 shrink-0 w-5 h-5 mt-0.5"></i>
+                <span><strong>인물 유형:</strong> 평면적 인물 (처음부터 끝까지 나쁜 태도를 유지함)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="check-circle" class="text-rose-500 shrink-0 w-5 h-5 mt-0.5"></i>
+                <span><strong>특징:</strong> 문기의 약점을 잡아 끊임없이 협박함.</span>
+              </li>
+            </ul>
+            <div class="bg-slate-50 p-4 rounded-xl text-sm italic text-slate-600 border border-slate-100">
+              "너 돈 돌려줬다는 거 거짓말이지? 내놓지 않으면 학교에 다 일러바친다!"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 탭 내용: 사건의 흐름 -->
+    <div id="section-plot" class="tab-content hidden animate-fade-in space-y-6">
+      <div class="bg-sky-100 text-sky-800 p-4 rounded-xl flex items-center gap-3 shadow-inner">
+        <i data-lucide="alert-triangle" class="shrink-0"></i>
+        <p><strong>비밀 풀기: 역순행적 구성!</strong> 이 소설은 (현재) 문기의 불안함 → (과거) 고깃간 사건 → (현재) 다시 사건 진행으로 이어집니다. 왜 문기가 불안해하는지 독자가 궁금하게 만드는 마법이죠!</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100">
+        <h2 class="text-xl font-bold text-center mb-6 text-slate-700">문기의 심리 변화 지도 (클릭해 보세요!)</h2>
+        <!-- 자바스크립트로 렌더링될 아코디언 영역 -->
+        <div id="plot-accordion" class="space-y-4"></div>
+      </div>
+    </div>
+
+    <!-- 탭 내용: 핵심 상징 -->
+    <div id="section-symbols" class="tab-content hidden animate-fade-in">
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition">
+          <div class="text-4xl mb-4">🌤️</div>
+          <h3 class="text-xl font-bold text-slate-800 mb-2">제목 '하늘은 맑건만'</h3>
+          <p class="text-slate-600 leading-relaxed">시대가 아무리 어려워도 변치 않는 절대적인 '도덕적 기준'이자 '깨끗한 양심'을 상징해요. 문기의 부끄러운 마음과 맑은 하늘이 대조되어 반성하는 마음을 더 크게 보여주죠.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition">
+          <div class="text-4xl mb-4">⚾🔭</div>
+          <h3 class="text-xl font-bold text-slate-800 mb-2">공과 쌍안경, 나머지 돈</h3>
+          <p class="text-slate-600 leading-relaxed">단순한 장난감이 아니에요. 문기가 양심을 져버리고 얻은 물건이기에, 보는 것만으로도 가슴을 뜨끔하게 만드는 '부끄러운 허물'이자 물적 증거입니다.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition">
+          <div class="text-4xl mb-4">👨‍🏫👓</div>
+          <h3 class="text-xl font-bold text-slate-800 mb-2">수신 시간과 선생님의 안경</h3>
+          <p class="text-slate-600 leading-relaxed">정직을 배우는 수신(도덕) 시간과 선생님의 안경 쓴 눈초리는 문기의 마음을 날카롭게 찌르는 바늘 같아요. 내적 갈등을 최고조로 끌어올리는 장치랍니다.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition">
+          <div class="text-4xl mb-4">💥🚑</div>
+          <h3 class="text-xl font-bold text-slate-800 mb-2">교통사고</h3>
+          <p class="text-slate-600 leading-relaxed">나쁜 일 같지만 소설에서는 달라요! 더 이상 거짓말 뒤에 숨지 못하게 만들고, 결국 삼촌에게 모든 것을 고백하게 만드는 '결정적 계기'가 되어줍니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 탭 내용: 마무리 퀴즈 -->
+    <div id="section-quiz" class="tab-content hidden animate-fade-in max-w-2xl mx-auto">
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-sky-100">
+        <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-slate-800 mb-2">실력 쑥쑥 확인 퀴즈! ✍️</h2>
+          <p class="text-slate-500">배운 내용을 얼마나 잘 기억하고 있는지 확인해 볼까요?</p>
+        </div>
+        <!-- 자바스크립트로 렌더링될 퀴즈 영역 -->
+        <div id="quiz-container" class="space-y-8"></div>
+        <div id="quiz-footer" class="mt-8 text-center"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // --- 초기화 및 아이콘 렌더링 ---
+    lucide.createIcons();
+
+    // --- 탭 전환 로직 ---
+    const tabs = ['intro', 'characters', 'plot', 'symbols', 'quiz'];
+
+    function switchTab(targetTab) {
+      // 1. 모든 탭 컨텐츠 숨기기
+      tabs.forEach(tab => {
+        document.getElementById(`section-${tab}`).classList.add('hidden');
+        document.getElementById(`section-${tab}`).classList.remove('block');
+      });
+      // 2. 타겟 탭 컨텐츠 보이기
+      document.getElementById(`section-${targetTab}`).classList.remove('hidden');
+      document.getElementById(`section-${targetTab}`).classList.add('block');
+
+      // 3. 버튼 스타일 업데이트
+      tabs.forEach(tab => {
+        const btn = document.getElementById(`btn-${tab}`);
+        if (tab === targetTab) {
+          btn.className = "tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-sky-500 text-white shadow-md transform scale-105";
+        } else {
+          btn.className = "tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700";
+        }
+      });
+    }
+
+    // --- 사건의 흐름 (아코디언) 로직 ---
+    const plotData = [
+      { stage: '발단', title: '어리둥절함과 은근한 불안', desc: '고깃간에서 1원 대신 10원을 거슬러 받고 돌려줄 기회를 놓침.', psycho: '어? 왜 돈을 더 주시지? 돌려줘야 하는데... 어떡하지?' },
+      { stage: '전개', title: '유혹과 일시적 후련함', desc: '수만의 유혹으로 공과 쌍안경을 삼. 삼촌의 훈계에 찔려 물건을 버리고 남은 돈을 고깃간에 돌려줌.', psycho: '공을 사니 좋긴 한데 마음이 불편해. 에잇, 다 버려버리자! 휴, 이제 좀 살 것 같네.' },
+      { stage: '위기', title: '절망과 극심한 죄책감', desc: '수만이 돈을 요구하며 협박함. 못 이겨 숙모 돈을 훔치고, 애먼 점순이가 도둑으로 몰려 쫓겨남.', psycho: '수만이가 다 일러바치면 어쩌지? 숙모 돈이라도... 아, 나 때문에 점순이가 쫓겨나다니! 난 쓰레기야 ㅠㅠ' },
+      { stage: '절정', title: '압박감과 자백의 공포', desc: '수신(도덕) 시간에 선생님 말씀에 찔려 괴로워함. 고백하려다 실패하고 결국 넋이 나가 걷다 교통사고를 당함.', psycho: '선생님이 꼭 나보고 하시는 말씀 같아. 숨 막혀. 말해야 하는데 입이 안 떨어져...' },
+      { stage: '결말', title: '해방감, 마음이 맑아짐', desc: '병원에서 깨어난 문기가 삼촌에게 모든 잘못을 솔직하게 자백함.', psycho: '삼촌, 사실은 제가 그랬어요... 아, 이제야 내 마음의 하늘도 맑게 개었어.' }
+    ];
+    let activeStage = null;
+
+    function renderPlot() {
+      const container = document.getElementById('plot-accordion');
+      let html = '';
+      plotData.forEach((item, index) => {
+        const isActive = activeStage === index;
+        html += `
+          <div class="border border-slate-200 rounded-xl overflow-hidden cursor-pointer hover:border-sky-300 transition-colors" onclick="toggleStage(${index})">
+            <div class="p-4 flex items-center justify-between ${isActive ? 'bg-sky-50' : 'bg-white'}">
+              <div class="flex items-center gap-4">
+                <span class="bg-sky-500 text-white font-bold px-3 py-1 rounded-lg text-sm w-16 text-center">${item.stage}</span>
+                <span class="font-bold text-slate-700">${item.title}</span>
+              </div>
+              <i data-lucide="arrow-right" class="transform transition-transform ${isActive ? 'rotate-90 text-sky-500' : 'text-slate-300'}"></i>
+            </div>
+            ${isActive ? `
+              <div class="p-4 bg-slate-50 border-t border-slate-100 text-sm md:text-base animate-fade-in">
+                <p class="text-slate-700 mb-3"><strong class="text-slate-900">핵심 사건:</strong> ${item.desc}</p>
+                <div class="bg-white p-3 rounded-lg border border-sky-100 relative">
+                  <div class="absolute -left-2 top-4 w-4 h-4 bg-white border-l border-t border-sky-100 transform -rotate-45"></div>
+                  <span class="font-bold text-sky-600">💭 문기의 속마음:</span> ${item.psycho}
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      });
+      container.innerHTML = html;
+      lucide.createIcons(); // 동적으로 생성된 아이콘 렌더링
+    }
+
+    function toggleStage(index) {
+      activeStage = activeStage === index ? null : index;
+      renderPlot();
+    }
+    renderPlot(); // 초기 렌더링
+
+    // --- 마무리 퀴즈 로직 ---
+    const quizzes = [
+      { id: 1, question: "이 소설은 사건이 일어난 순서대로 이야기가 진행되지 않고, '현재-과거-현재'로 시간이 교차됩니다. 이러한 구성을 무엇이라고 할까요?", options: ["순행적 구성", "역순행적 구성", "액자식 구성", "병렬적 구성"], answer: 1, explanation: "정답은 '역순행적 구성'입니다! 도입부에서 문기의 불안한 모습을 먼저 보여주어 독자의 궁금증을 유발하는 마법 같은 장치랍니다." },
+      { id: 2, question: "문기가 겪고 있는 '내적 갈등'의 가장 근본적인 원인은 무엇인가요?", options: ["수만이와의 몸싸움", "시험 성적이 떨어진 것", "거스름돈을 더 받고 돌려주지 않은 것", "숙모에게 꾸중을 들은 것"], answer: 2, explanation: "정답은 '거스름돈 사건'입니다! 양심과 유혹 사이에서 괴로워하는 문기의 마음속 전쟁(내적 갈등)이 여기서 시작되었죠." },
+      { id: 3, question: "소설의 제목 『하늘은 맑건만』이 상징하는 바로 가장 적절한 것은?", options: ["주인공이 놀러 가기 좋은 날씨", "맑고 깨끗하게 살아야 한다는 도덕적 양심", "비가 오기 전의 우울한 분위기", "수만이가 좋아하는 하늘의 색깔"], answer: 1, explanation: "정답은 '도덕적 양심'입니다! 변치 않는 맑은 하늘은 죄를 지어 부끄러운 문기의 마음과 대조를 이루며 정직의 중요성을 알려줍니다." }
+    ];
+    
+    let quizAnswers = {};
+    let showResults = false;
+
+    function handleQuizSelect(quizId, optionIndex) {
+      if (showResults) return;
+      quizAnswers[quizId] = optionIndex;
+      renderQuiz();
+    }
+
+    function checkResults() {
+      showResults = true;
+      renderQuiz();
+    }
+
+    function resetQuiz() {
+      showResults = false;
+      quizAnswers = {};
+      renderQuiz();
+    }
+
+    function calculateScore() {
+      let score = 0;
+      quizzes.forEach(q => {
+        if (quizAnswers[q.id] === q.answer) score++;
+      });
+      return score;
+    }
+
+    function renderQuiz() {
+      const container = document.getElementById('quiz-container');
+      const footer = document.getElementById('quiz-footer');
+      let html = '';
+
+      quizzes.forEach((q, qIndex) => {
+        html += `
+          <div class="bg-slate-50 p-6 rounded-xl border border-slate-100">
+            <p class="font-bold text-lg text-slate-800 mb-4">
+              <span class="text-sky-500 mr-2">Q${qIndex + 1}.</span>${q.question}
+            </p>
+            <div class="space-y-2">
+        `;
+        
+        q.options.forEach((opt, optIndex) => {
+          const isSelected = quizAnswers[q.id] === optIndex;
+          const isCorrect = optIndex === q.answer;
+          let btnClass = "bg-white border-slate-200 hover:bg-slate-100";
+
+          if (isSelected) {
+            if (showResults) {
+              btnClass = isCorrect ? "bg-green-100 border-green-500 text-green-800" : "bg-red-100 border-red-500 text-red-800";
+            } else {
+              btnClass = "bg-sky-100 border-sky-500 text-sky-800";
+            }
+          } else if (showResults && isCorrect) {
+            btnClass = "bg-green-100 border-green-500 text-green-800";
+          }
+
+          html += `
+            <button onclick="handleQuizSelect(${q.id}, ${optIndex})" ${showResults ? 'disabled' : ''} class="w-full text-left p-3 rounded-lg border transition-all ${btnClass}">
+              ${optIndex + 1}. ${opt}
+            </button>
+          `;
+        });
+
+        html += `</div>`; // space-y-2 닫기
+
+        if (showResults) {
+          const isAnswerCorrect = quizAnswers[q.id] === q.answer;
+          html += `
+            <div class="mt-4 p-4 rounded-lg text-sm ${isAnswerCorrect ? 'bg-green-50 text-green-800 border border-green-200' : 'bg-red-50 text-red-800 border border-red-200'}">
+              <strong>${isAnswerCorrect ? '🎉 정답입니다!' : '😢 아쉽네요!'}</strong>
+              <p class="mt-1">${q.explanation}</p>
+            </div>
+          `;
+        }
+        
+        html += `</div>`; // 전체 퀴즈 박스 닫기
+      });
+      container.innerHTML = html;
+
+      // 푸터(제출/결과 화면) 렌더링
+      const allAnswered = Object.keys(quizAnswers).length === quizzes.length;
+      if (!showResults) {
+        footer.innerHTML = `
+          <button onclick="checkResults()" ${!allAnswered ? 'disabled' : ''} class="${allAnswered ? 'bg-sky-500 hover:bg-sky-600' : 'bg-slate-300'} text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md">
+            정답 확인하기
+          </button>
+        `;
+      } else {
+        const score = calculateScore();
+        let emoji = score === 3 ? '🏆' : score === 2 ? '👍' : '💪';
+        footer.innerHTML = `
+          <div class="animate-fade-in text-center">
+            <div class="text-4xl mb-2">${emoji}</div>
+            <h3 class="text-2xl font-bold text-slate-800 mb-4">
+              3문제 중 <span class="text-sky-600">${score}</span>문제 정답!
+            </h3>
+            <button onclick="resetQuiz()" class="text-sky-600 hover:text-sky-800 underline font-medium">
+              다시 풀기
+            </button>
+          </div>
+        `;
+      }
+    }
+    renderQuiz(); // 초기 렌더링
+
+  </script>
+</body>
+</html>
