@@ -19,6 +19,7 @@
           animation: {
             'spin-slow': 'spin 3s linear infinite',
             'fade-in': 'fadeIn 0.5s ease-in-out',
+            'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           },
           keyframes: {
             fadeIn: {
@@ -53,19 +54,23 @@
     <div class="flex flex-wrap gap-2 mb-8 justify-center bg-white p-2 rounded-2xl shadow-sm" id="nav-tabs">
       <button onclick="switchTab('intro')" id="btn-intro" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-sky-500 text-white shadow-md transform scale-105">
         <i data-lucide="book-open" class="w-[18px] h-[18px]"></i>
-        <span class="hidden sm:inline">갈등이란?</span>
+        <span class="hidden sm:inline">소설이란?</span>
       </button>
       <button onclick="switchTab('characters')" id="btn-characters" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700">
         <i data-lucide="users" class="w-[18px] h-[18px]"></i>
         <span class="hidden sm:inline">인물 탐구</span>
       </button>
       <button onclick="switchTab('plot')" id="btn-plot" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700">
-        <i data-lucide="map" class="w-[18px] h-[18px]"></i>
-        <span class="hidden sm:inline">사건의 흐름</span>
+        <i data-lucide="layers" class="w-[18px] h-[18px]"></i>
+        <span class="hidden sm:inline">구성 단계</span>
+      </button>
+      <button onclick="switchTab('qna')" id="btn-qna" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700">
+        <i data-lucide="edit-3" class="w-[18px] h-[18px]"></i>
+        <span class="hidden sm:inline">내용 정리</span>
       </button>
       <button onclick="switchTab('symbols')" id="btn-symbols" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700">
         <i data-lucide="lightbulb" class="w-[18px] h-[18px]"></i>
-        <span class="hidden sm:inline">핵심 상징</span>
+        <span class="hidden sm:inline">핵심 정리</span>
       </button>
       <button onclick="switchTab('quiz')" id="btn-quiz" class="tab-btn flex items-center gap-2 px-4 py-3 rounded-xl font-medium transition-all duration-200 bg-transparent text-slate-500 hover:bg-sky-100 hover:text-sky-700">
         <i data-lucide="check-circle" class="w-[18px] h-[18px]"></i>
@@ -73,36 +78,105 @@
       </button>
     </div>
 
-    <!-- 탭 내용: 갈등이란? -->
+    <!-- 탭 내용: 소설이란? -->
     <div id="section-intro" class="tab-content block animate-fade-in space-y-6">
       <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100">
         <h2 class="text-2xl font-bold text-sky-700 mb-4 flex items-center gap-2">
-          🌱 왜 '칡'과 '등나무'일까?
+          📖 소설이란 무엇일까?
         </h2>
-        <p class="text-lg leading-relaxed mb-4">
-          '갈등(葛藤)'이라는 단어는 칡(갈)과 등나무(등)가 서로 얽혀있는 모습에서 나왔어요. 
-          소설 속 갈등은 이야기라는 생명체에 마법 같은 긴장감을 불어넣는 <strong>'심장 박동'</strong>과 같답니다!
+        <p class="text-lg leading-relaxed mb-2 text-slate-700">
+          <strong>소설의 개념:</strong> 작가가 현실 세계에 있을 법한 이야기를 상상을 통해 꾸며 쓴 문학이에요.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-2xl p-6 shadow-sm border border-indigo-100 relative overflow-hidden">
-          <div class="absolute -right-4 -top-4 text-6xl opacity-10">🤔</div>
-          <h3 class="text-xl font-bold text-indigo-700 mb-3">내적 갈등 (내 마음속 전쟁)</h3>
-          <p class="text-slate-700 mb-4">한 인물의 마음속에서 두 가지 이상의 욕망이나 가치가 충돌하는 현상이에요.</p>
-          <div class="bg-white/60 p-4 rounded-xl border border-white">
-            <strong>문기의 상황:</strong><br/>
-            "잘못 받은 거스름돈 10원을 정직하게 돌려줄까? (양심) vs 갖고 싶던 공을 살까? (유혹)"
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100">
+        <h3 class="text-xl font-bold text-sky-600 mb-4 flex items-center gap-2">
+          ✨ 소설의 5가지 특징
+        </h3>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:shadow-md transition">
+            <h4 class="font-bold text-slate-800 mb-1 text-lg">① 허구성</h4>
+            <p class="text-sm text-slate-600">상상을 통해 꾸며 낸 이야기 (실제로 일어난 사실X)</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:shadow-md transition">
+            <h4 class="font-bold text-slate-800 mb-1 text-lg">② 개연성</h4>
+            <p class="text-sm text-slate-600">있을 법한 이야기를 다룸 (필연: 반드시 꼭 그렇게 되는 것)</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:shadow-md transition">
+            <h4 class="font-bold text-slate-800 mb-1 text-lg">③ 서사성</h4>
+            <p class="text-sm text-slate-600">이야기 구조를 지님 (누가, 언제, 어디서, 무엇을, 어떻게, 왜)</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:shadow-md transition">
+            <h4 class="font-bold text-slate-800 mb-1 text-lg">④ 진실성</h4>
+            <p class="text-sm text-slate-600">바람직한 인간의 모습, 삶의 진실과 참된 모습을 지향함</p>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:shadow-md transition">
+            <h4 class="font-bold text-slate-800 mb-1 text-lg">⑤ 산문성</h4>
+            <p class="text-sm text-slate-600">운율에 얽매이지 않고 자유롭게 줄글로 씀</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100">
+        <h3 class="text-xl font-bold text-sky-600 mb-4 flex items-center gap-2">
+          🏗️ 소설의 구성과 단계
+        </h3>
+        <div class="flex flex-col md:flex-row gap-6 mb-2">
+          <div class="flex-1 bg-sky-50 p-5 rounded-xl border border-sky-100">
+            <h4 class="font-bold text-sky-800 mb-3 flex items-center gap-2"><i data-lucide="layers" class="w-5 h-5"></i> 구성의 3요소</h4>
+            <ul class="space-y-3 text-sm text-slate-700">
+              <li><span class="bg-sky-200 text-sky-800 px-2 py-1 rounded font-bold mr-2">인물</span> 사건을 전개해나가는 행위의 주체</li>
+              <li><span class="bg-sky-200 text-sky-800 px-2 py-1 rounded font-bold mr-2">사건</span> 주제를 나타내기 위해 인물들이 벌이는 일과 행동</li>
+              <li><span class="bg-sky-200 text-sky-800 px-2 py-1 rounded font-bold mr-2">배경</span> 인물이 활동하고 사건이 펼쳐지는 시간/장소/환경</li>
+            </ul>
+          </div>
+          <div class="flex-[1.2] bg-indigo-50 p-5 rounded-xl border border-indigo-100">
+            <h4 class="font-bold text-indigo-800 mb-3 flex items-center gap-2"><i data-lucide="trending-up" class="w-5 h-5"></i> 구성 5단계</h4>
+            <ul class="space-y-2 text-sm text-slate-700">
+              <li><strong class="text-indigo-600">1. 발단:</strong> 인물/배경 소개 & 사건의 실마리 제공</li>
+              <li><strong class="text-indigo-600">2. 전개:</strong> 사건(=갈등)의 시작</li>
+              <li><strong class="text-indigo-600">3. 위기:</strong> 갈등이 심화되거나, 새로운 사건 발생</li>
+              <li><strong class="text-indigo-600">4. 절정:</strong> 갈등이 최고조에 이름, 해결의 실마리 제시</li>
+              <li><strong class="text-indigo-600">5. 결말:</strong> 갈등이 해소 됨</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100">
+        <h3 class="text-xl font-bold text-sky-600 mb-4 flex items-center gap-2">
+          🌱 소설 속 '갈등(葛藤)'
+        </h3>
+        <div class="bg-slate-50 p-4 rounded-xl mb-6 text-sm md:text-base text-slate-700 leading-relaxed border border-slate-100">
+          <p class="mb-2"><strong>사전적 의미:</strong> 칡(갈)과 등나무(등)가 서로 얽히는 것처럼, 개인이나 집단 사이에 서로 생각이나 입장이 달라 대립하거나 다투는 상황이에요.</p>
+          <p class="mb-3"><strong>문학적 의미:</strong> 인물의 마음속, 또는 인물과 환경 사이에서 대립과 충돌이 일어나 복잡하게 얽힌 상태를 말해요.</p>
+          <div class="bg-white p-3 rounded-lg border border-slate-200 shadow-sm">
+            <strong class="text-sky-700">💡 갈등의 3가지 기능:</strong> 
+            <span class="mx-1">① 사건 전개</span> | 
+            <span class="mx-1">② 인물의 성격 제시</span> | 
+            <span class="mx-1">③ 주제 부각</span>
           </div>
         </div>
 
-        <div class="bg-gradient-to-br from-rose-50 to-orange-100 rounded-2xl p-6 shadow-sm border border-rose-100 relative overflow-hidden">
-          <div class="absolute -right-4 -top-4 text-6xl opacity-10">⚡</div>
-          <h3 class="text-xl font-bold text-rose-700 mb-3">외적 갈등 (세상과의 싸움)</h3>
-          <p class="text-slate-700 mb-4">인물과 그를 둘러싼 외부 존재(다른 인물, 사회 등) 사이에서 벌어지는 대립이에요.</p>
-          <div class="bg-white/60 p-4 rounded-xl border border-white">
-            <strong>문기의 상황:</strong><br/>
-            "양심을 지키고 싶은 문기 vs 문기를 협박하며 이익을 챙기려는 수만이의 대립"
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-2xl p-6 shadow-sm border border-indigo-100 relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-6xl opacity-10">🤔</div>
+            <h3 class="text-xl font-bold text-indigo-700 mb-3">내적 갈등 (마음속 전쟁)</h3>
+            <p class="text-slate-700 mb-4 text-sm">한 인물의 마음속에서 애정과 증오처럼 완전히 다른 감정이나 바람이 대립하여 일어나는 갈등이에요.</p>
+            <div class="bg-white/60 p-3 rounded-xl border border-white text-sm">
+              <strong>하늘은 맑건만 예시:</strong><br/>
+              "잘못 받은 거스름돈 10원을 정직하게 돌려줄까? (양심) vs 갖고 싶던 공을 살까? (유혹)"
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-rose-50 to-orange-100 rounded-2xl p-6 shadow-sm border border-rose-100 relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 text-6xl opacity-10">⚡</div>
+            <h3 class="text-xl font-bold text-rose-700 mb-3">외적 갈등 (세상과의 싸움)</h3>
+            <p class="text-slate-700 mb-4 text-sm">인물과 인물, 인물과 사회, 인물과 자연, 인물과 운명 등 외부 환경 사이에 일어나는 갈등이에요.</p>
+            <div class="bg-white/60 p-3 rounded-xl border border-white text-sm">
+              <strong>하늘은 맑건만 예시:</strong><br/>
+              "양심을 지키고 싶은 문기 vs 문기를 협박하며 이익을 챙기려는 수만이의 대립 (인물 vs 인물)"
+            </div>
           </div>
         </div>
       </div>
@@ -113,6 +187,53 @@
       <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100 mb-6 text-center">
         <h2 class="text-2xl font-bold text-sky-700 mb-2">이야기를 이끄는 두 소년</h2>
         <p class="text-slate-600">성격이 완전히 다른 두 친구가 만나 어떻게 갈등이 커지는지 확인해 보세요!</p>
+      </div>
+
+      <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+        <div class="absolute -right-4 -top-4 text-6xl opacity-10">📖</div>
+        <h3 class="text-xl font-bold text-rose-700 mb-4 flex items-center gap-2">
+          💡 TIP. 소설 속 인물의 유형
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-white p-5 rounded-xl shadow-sm border border-rose-100">
+            <h4 class="font-bold text-slate-800 mb-3 text-lg border-b pb-2">입체적 인물과 평면적 인물</h4>
+            <ul class="text-sm text-slate-700 space-y-4 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <strong class="text-rose-600 text-base shrink-0 w-[6.5rem] whitespace-nowrap">입체적 인물:</strong>
+                <div class="flex-1">
+                  <p class="break-keep">사건의 전개 과정에서 어떤 영향을 받아 성격이 변하는 인물</p>
+                  <div class="mt-1.5 flex items-center gap-1.5"><span class="bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded text-xs font-medium">하늘은 맑건만</span> 👉 <strong class="text-sky-600 text-base">문기</strong></div>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <strong class="text-rose-600 text-base shrink-0 w-[6.5rem] whitespace-nowrap">평면적 인물:</strong>
+                <div class="flex-1">
+                  <p class="break-keep">소설의 처음부터 끝까지 성격이 변하지 않는 인물</p>
+                  <div class="mt-1.5 flex items-center gap-1.5"><span class="bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded text-xs font-medium">하늘은 맑건만</span> 👉 <strong class="text-rose-600 text-base">수만</strong></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-white p-5 rounded-xl shadow-sm border border-rose-100">
+            <h4 class="font-bold text-slate-800 mb-3 text-lg border-b pb-2">주동 인물과 반동 인물</h4>
+            <ul class="text-sm text-slate-700 space-y-4 leading-relaxed">
+              <li class="flex items-start gap-2">
+                <strong class="text-rose-600 text-base shrink-0 w-[6.5rem] whitespace-nowrap">주동 인물:</strong>
+                <div class="flex-1">
+                  <p class="break-keep">이야기를 이끌어 가는 주인공</p>
+                  <div class="mt-1.5 flex items-center gap-1.5"><span class="bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded text-xs font-medium">하늘은 맑건만</span> 👉 <strong class="text-sky-600 text-base">문기</strong></div>
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <strong class="text-rose-600 text-base shrink-0 w-[6.5rem] whitespace-nowrap">반동 인물:</strong>
+                <div class="flex-1">
+                  <p class="break-keep">주인공과 대립하며 갈등하는 인물</p>
+                  <div class="mt-1.5 flex items-center gap-1.5"><span class="bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded text-xs font-medium">하늘은 맑건만</span> 👉 <strong class="text-rose-600 text-base">수만</strong></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
@@ -172,42 +293,330 @@
       </div>
     </div>
 
-    <!-- 탭 내용: 사건의 흐름 -->
+    <!-- 탭 내용: 구성 단계 (인터랙티브 그래프 UI) -->
     <div id="section-plot" class="tab-content hidden animate-fade-in space-y-6">
-      <div class="bg-sky-100 text-sky-800 p-4 rounded-xl flex items-center gap-3 shadow-inner">
-        <i data-lucide="alert-triangle" class="shrink-0"></i>
-        <p><strong>비밀 풀기: 역순행적 구성!</strong> 이 소설은 (현재) 문기의 불안함 → (과거) 고깃간 사건 → (현재) 다시 사건 진행으로 이어집니다. 왜 문기가 불안해하는지 독자가 궁금하게 만드는 마법이죠!</p>
+      
+      <div class="bg-sky-100 text-sky-800 p-4 rounded-xl flex items-start sm:items-center gap-3 shadow-inner">
+        <i data-lucide="mouse-pointer-click" class="shrink-0 text-sky-600 mt-0.5 sm:mt-0"></i>
+        <div>
+          <p><strong>아래 그림 그래프의 단계 버튼을 직접 클릭해 보세요!</strong> 소설의 갈등이 어떻게 커지고 해결되는지 단계별 핵심 내용을 확인할 수 있습니다.</p>
+          <p class="text-sm mt-1 text-sky-700">📌 참고: 이 소설은 현재에서 과거로 돌아갔다가 다시 현재로 오는 <strong>'역순행적 구성'</strong>을 취하고 있어요.</p>
+        </div>
       </div>
 
-      <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100">
-        <h2 class="text-xl font-bold text-center mb-6 text-slate-700">문기의 심리 변화 지도 (클릭해 보세요!)</h2>
-        <!-- 자바스크립트로 렌더링될 아코디언 영역 -->
-        <div id="plot-accordion" class="space-y-4"></div>
+      <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sky-100">
+        <h2 class="text-xl font-bold text-center mb-6 text-slate-700">소설 『하늘은 맑건만』의 구성 단계</h2>
+        
+        <!-- 대화형 그림 그래프 영역 (비율 고정으로 찌그러짐 방지) -->
+        <div class="relative w-full max-w-3xl mx-auto rounded-xl border border-slate-200 bg-slate-50 mb-8 shadow-sm aspect-[4/3] sm:aspect-[16/9] flex items-center justify-center overflow-hidden">
+          
+          <!-- 만약 그림 파일 로드 실패 시 나타나는 백업용 가이드 라인 -->
+          <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-30" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M 5 85 L 35 60 L 55 40 L 75 20 L 95 85" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4"></path>
+          </svg>
+
+          <!-- 사용자가 업로드한 원본 그림 파일 활용 (에러 시 숨김 처리하여 찌그러짐 방지) -->
+          <img src="구성 단계.png" alt="구성 단계 산 모양 그래프" class="absolute inset-0 w-full h-full object-contain z-10 block" onerror="this.style.opacity='0'">
+          
+          <!-- ★ 추가 요청된 화살표 및 텍스트 오버레이 영역 ★ -->
+          <div class="absolute inset-0 w-full h-full pointer-events-none z-15">
+            
+            <!-- SVG 화살표 (두께 3mm, 버튼간 선과 완벽히 평행, 길이 약 3cm 수준으로 조정) -->
+            <svg class="absolute inset-0 w-full h-full overflow-visible">
+              <defs>
+                <!-- 우상향 화살표 머리 -->
+                <marker id="arrow-up" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 2 L 8 5 L 0 8 z" fill="#ef4444" />
+                </marker>
+                <!-- 우하향 화살표 머리 -->
+                <marker id="arrow-down" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                  <path d="M 0 2 L 8 5 L 0 8 z" fill="#3b82f6" />
+                </marker>
+              </defs>
+              
+              <!-- 전개 -> 위기 사이 (왼쪽 우상향 화살표, 전개-위기 선과 평행) -->
+              <line x1="40%" y1="50%" x2="50%" y2="40%" stroke="#ef4444" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow-up)" />
+              
+              <!-- 절정 -> 결말 사이 (오른쪽 우하향 화살표, 오른쪽으로 약 5mm 이동) -->
+              <line x1="81%" y1="35%" x2="84.5%" y2="49%" stroke="#3b82f6" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow-down)" />
+            </svg>
+
+            <!-- 1. 발단 오른쪽 옆 -->
+            <div class="absolute" style="left: 23%; top: 78%; transform: translateY(-50%);">
+              <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-slate-200 text-xs sm:text-sm font-bold text-slate-700 shadow-md whitespace-nowrap">갈등 실마리</span>
+            </div>
+
+            <!-- 2. 전개와 위기 사이 (화살표의 왼쪽, 오른쪽으로 10mm 이동 및 텍스트 수정) -->
+            <div class="absolute" style="left: 48%; top: 43%; transform: translate(-100%, -50%);">
+              <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-red-200 text-xs sm:text-sm font-bold text-red-600 shadow-md whitespace-nowrap">갈등 증가</span>
+            </div>
+
+            <!-- 3. 절정 오른쪽 옆 -->
+            <div class="absolute" style="left: 83%; top: 20%; transform: translateY(-50%);">
+              <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-purple-200 text-xs sm:text-sm font-bold text-purple-700 shadow-md whitespace-nowrap">갈등 최고조</span>
+            </div>
+
+            <!-- 4. 절정과 결말 사이 (화살표의 왼쪽, 오른쪽으로 5mm 이동) -->
+            <div class="absolute" style="left: 79%; top: 42%; transform: translate(-100%, -50%);">
+              <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-blue-200 text-xs sm:text-sm font-bold text-blue-600 shadow-md whitespace-nowrap">갈등 감소</span>
+            </div>
+
+            <!-- 5. 결말 왼쪽 옆 -->
+            <div class="absolute" style="left: 84%; top: 80%; transform: translate(-100%, -50%);">
+              <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-emerald-200 text-xs sm:text-sm font-bold text-emerald-600 shadow-md whitespace-nowrap">갈등 해소</span>
+            </div>
+
+          </div>
+
+          <!-- 자바스크립트로 렌더링될 버튼 영역 (그림 위에 오버레이) -->
+          <div id="plot-graph-buttons" class="absolute inset-0 w-full h-full pointer-events-none z-20"></div>
+        </div>
+
+        <!-- 클릭 시 나타나는 상세 정보 카드 영역 -->
+        <div id="plot-detail-card" class="bg-white rounded-2xl shadow-md border-t-4 border-sky-500 overflow-hidden min-h-[280px]">
+          <!-- 내용이 자바스크립트를 통해 동적으로 들어갑니다 -->
+        </div>
+
       </div>
     </div>
 
-    <!-- 탭 내용: 핵심 상징 -->
-    <div id="section-symbols" class="tab-content hidden animate-fade-in">
-      <div class="grid sm:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition">
-          <div class="text-4xl mb-4">🌤️</div>
-          <h3 class="text-xl font-bold text-slate-800 mb-2">제목 '하늘은 맑건만'</h3>
-          <p class="text-slate-600 leading-relaxed">시대가 아무리 어려워도 변치 않는 절대적인 '도덕적 기준'이자 '깨끗한 양심'을 상징해요. 문기의 부끄러운 마음과 맑은 하늘이 대조되어 반성하는 마음을 더 크게 보여주죠.</p>
+    <!-- ★ 추가된 탭 내용: 내용 정리 (날개 질문 Q&A) ★ -->
+    <div id="section-qna" class="tab-content hidden animate-fade-in space-y-6">
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-sky-100">
+        <h2 class="text-2xl font-bold text-sky-700 mb-2 text-center">📝 내용 정리 (스스로 답해보기)</h2>
+        <p class="text-slate-500 text-center mb-8">소설을 읽고, 각 구성 단계별 질문에 자신의 생각을 자유롭게 적어 보세요.</p>
+        
+        <div class="space-y-10">
+          <!-- 1. 발단 -->
+          <div>
+            <h3 class="text-xl font-bold text-slate-800 mb-4 border-b-2 border-sky-200 pb-2 inline-flex items-center gap-2">
+              <span class="bg-sky-100 text-sky-600 px-2 py-0.5 rounded text-sm">1</span> 발단
+            </h3>
+            <div class="space-y-4">
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'문기'가 거스름돈을 받고 어리둥절했지만, 그냥 집으로 돌아간 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 전개 -->
+          <div>
+            <h3 class="text-xl font-bold text-slate-800 mb-4 border-b-2 border-sky-200 pb-2 inline-flex items-center gap-2">
+              <span class="bg-sky-100 text-sky-600 px-2 py-0.5 rounded text-sm">2</span> 전개
+            </h3>
+            <div class="space-y-4">
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'수만'이 '문기'에게 잔돈만 먼저 숙모에게 주라고 말한 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>두 소년이 돈을 쓰는 데에 손이 맞게 된 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'문기'의 얼굴이 벌겋게 달아오른 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'문기'가 모르고 흘리는 것인 양 쌍안경을 길바닥에 떨어뜨린 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>고깃간 집 안마당에 돈을 던지고 난 뒤 '문기'의 마음은 어떠했을까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'수만'이가 '문기' 앞에 나타난 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'문기'의 말과 행동으로 미루어 볼 때 '문기'의 성격은 어떠한가?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. 위기 -->
+          <div>
+            <h3 class="text-xl font-bold text-slate-800 mb-4 border-b-2 border-sky-200 pb-2 inline-flex items-center gap-2">
+              <span class="bg-sky-100 text-sky-600 px-2 py-0.5 rounded text-sm">3</span> 위기
+            </h3>
+            <div class="space-y-4">
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'수만'이 '문기'를 괴롭히는 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'문기'가 범한 '두번째 허물'은 무엇인가?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'문기'가 뜬눈으로 밤을 새운 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. 절정 -->
+          <div>
+            <h3 class="text-xl font-bold text-slate-800 mb-4 border-b-2 border-sky-200 pb-2 inline-flex items-center gap-2">
+              <span class="bg-sky-100 text-sky-600 px-2 py-0.5 rounded text-sm">4</span> 절정
+            </h3>
+            <div class="space-y-4">
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>수신 시간, 선생님이 쳐다볼 때마다 '문기'의 가슴이 뜨끔뜨끔해진 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'문기'가 담임 선생님을 찾아간 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. 결말 -->
+          <div>
+            <h3 class="text-xl font-bold text-slate-800 mb-4 border-b-2 border-sky-200 pb-2 inline-flex items-center gap-2">
+              <span class="bg-sky-100 text-sky-600 px-2 py-0.5 rounded text-sm">5</span> 결말
+            </h3>
+            <div class="space-y-4">
+              <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <p class="font-bold text-slate-800 mb-3 flex items-start gap-2">
+                  <span class="text-sky-500 shrink-0 mt-0.5">Q.</span>
+                  <span>'문기'가 내일 맑은 하늘을 떳떳이 마음껏 쳐다볼 수 있는 까닭은 무엇일까?</span>
+                </p>
+                <textarea class="w-full p-3 rounded-lg border border-slate-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500 outline-none resize-y transition-all text-slate-700" rows="2" placeholder="여기에 답을 적어보세요..."></textarea>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition">
-          <div class="text-4xl mb-4">⚾🔭</div>
-          <h3 class="text-xl font-bold text-slate-800 mb-2">공과 쌍안경, 나머지 돈</h3>
-          <p class="text-slate-600 leading-relaxed">단순한 장난감이 아니에요. 문기가 양심을 져버리고 얻은 물건이기에, 보는 것만으로도 가슴을 뜨끔하게 만드는 '부끄러운 허물'이자 물적 증거입니다.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition">
-          <div class="text-4xl mb-4">👨‍🏫👓</div>
-          <h3 class="text-xl font-bold text-slate-800 mb-2">수신 시간과 선생님의 안경</h3>
-          <p class="text-slate-600 leading-relaxed">정직을 배우는 수신(도덕) 시간과 선생님의 안경 쓴 눈초리는 문기의 마음을 날카롭게 찌르는 바늘 같아요. 내적 갈등을 최고조로 끌어올리는 장치랍니다.</p>
-        </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition">
-          <div class="text-4xl mb-4">💥🚑</div>
-          <h3 class="text-xl font-bold text-slate-800 mb-2">교통사고</h3>
-          <p class="text-slate-600 leading-relaxed">나쁜 일 같지만 소설에서는 달라요! 더 이상 거짓말 뒤에 숨지 못하게 만들고, 결국 삼촌에게 모든 것을 고백하게 만드는 '결정적 계기'가 되어줍니다.</p>
+      </div>
+    </div>
+
+    <!-- ★ 기존 탭 내용: 핵심 정리 ★ -->
+    <div id="section-symbols" class="tab-content hidden animate-fade-in space-y-6">
+      <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-sky-100">
+        <h2 class="text-2xl font-bold text-sky-700 mb-6 text-center">📝 작품 핵심 정리</h2>
+
+        <div class="space-y-6">
+          <!-- 1. 제목의 상징성 -->
+          <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-sky-300 transition-colors">
+            <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+              <span class="text-2xl">🌤️</span> 제목의 상징성: '하늘은 맑건만'
+            </h3>
+            <p class="text-slate-700 leading-relaxed md:pl-9">
+              '맑은 하늘'은 시대나 상황이 변해도 달라지지 않는 <strong>'절대적인 도덕적 기준'</strong>과 <strong>'깨끗한 양심'</strong>을 상징합니다. 맑은 하늘을 떳떳하게 쳐다보지 못하는 문기의 부끄러운 마음과 대조되어, 정직의 중요성과 반성하는 마음을 크게 부각시킵니다.
+            </p>
+          </div>
+
+          <!-- 2. 상징적 소재와 그 의미 -->
+          <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-sky-300 transition-colors">
+            <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+              <span class="text-2xl">🔍</span> 상징적 소재와 그 의미
+            </h3>
+            <ul class="space-y-3 md:pl-9 text-slate-700">
+              <li class="flex items-start gap-2">
+                <span class="text-sky-500 mt-1">▶</span>
+                <div>
+                  <strong class="text-sky-800">공, 쌍안경, 나머지 돈</strong><br>
+                  문기가 양심을 져버리고 얻은 물건으로, 보는 것만으로도 가슴을 뜨끔하게 만드는 <strong>'부끄러운 허물'</strong>이자 문기의 비양심적 행동을 증명하는 물적 증거입니다.
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-500 mt-1">▶</span>
+                <div>
+                  <strong class="text-sky-800">선생님의 안경 쓴 눈초리</strong><br>
+                  문기의 양심을 예리하게 찌르며 <strong>내적 갈등을 최고조</strong>로 끌어올리는 외적 자극제 역할을 합니다.
+                </div>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-sky-500 mt-1">▶</span>
+                <div>
+                  <strong class="text-sky-800">교통사고</strong><br>
+                  단순한 불운이 아니라 문기가 더 이상 거짓말 뒤에 숨지 못하게 만들고, 결국 <strong>자신의 잘못을 고백하게 만드는 결정적 계기</strong>가 됩니다.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- 3. 시대적 배경을 알 수 있는 소재들 -->
+          <div class="bg-slate-50 p-5 rounded-xl border border-slate-200 hover:border-sky-300 transition-colors">
+            <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+              <span class="text-2xl">🕰️</span> 시대적 배경을 알 수 있는 소재들
+            </h3>
+            <p class="text-slate-600 mb-4 md:pl-9 text-sm">이 소설은 1930년대 일제 강점기를 배경으로 하고 있어, 지금은 잘 쓰지 않는 당시의 시대상을 반영하는 말들이 등장합니다.</p>
+            <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3 md:pl-9">
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <strong class="text-slate-800 block mb-1">지전 (1원, 10원)</strong>
+                <span class="text-slate-600 text-sm">지폐. 당시 화폐 가치와 경제적 상황을 보여줍니다.</span>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <strong class="text-slate-800 block mb-1">수신 시간</strong>
+                <span class="text-slate-600 text-sm">일제 강점기에 있었던 도덕/윤리 교과 시간을 뜻합니다.</span>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <strong class="text-slate-800 block mb-1">활동사진</strong>
+                <span class="text-slate-600 text-sm">오늘날의 '영화'를 부르던 그 시절의 단어입니다.</span>
+              </div>
+              <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <strong class="text-slate-800 block mb-1">고깃간 / 다리오금 치기</strong>
+                <span class="text-slate-600 text-sm">정육점과 무릎 뒤쪽을 치는 당시 아이들의 장난입니다.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. 주제 -->
+          <div class="bg-sky-100 p-6 rounded-xl border border-sky-200 relative overflow-hidden">
+            <i data-lucide="quote" class="absolute -right-4 -bottom-4 text-sky-200 w-24 h-24 opacity-50"></i>
+            <h3 class="text-xl font-bold text-sky-800 mb-3 flex items-center gap-2 relative z-10">
+              <span class="text-2xl">💡</span> 주제
+            </h3>
+            <p class="text-sky-900 font-bold text-xl md:text-2xl text-center py-4 relative z-10">
+              "정직하게 사는 삶의 중요성과<br class="md:hidden"> 양심을 지키는 용기"
+            </p>
+          </div>
+
         </div>
       </div>
     </div>
@@ -232,19 +641,16 @@
     lucide.createIcons();
 
     // --- 탭 전환 로직 ---
-    const tabs = ['intro', 'characters', 'plot', 'symbols', 'quiz'];
+    const tabs = ['intro', 'characters', 'plot', 'qna', 'symbols', 'quiz'];
 
     function switchTab(targetTab) {
-      // 1. 모든 탭 컨텐츠 숨기기
       tabs.forEach(tab => {
         document.getElementById(`section-${tab}`).classList.add('hidden');
         document.getElementById(`section-${tab}`).classList.remove('block');
       });
-      // 2. 타겟 탭 컨텐츠 보이기
       document.getElementById(`section-${targetTab}`).classList.remove('hidden');
       document.getElementById(`section-${targetTab}`).classList.add('block');
 
-      // 3. 버튼 스타일 업데이트
       tabs.forEach(tab => {
         const btn = document.getElementById(`btn-${tab}`);
         if (tab === targetTab) {
@@ -255,51 +661,145 @@
       });
     }
 
-    // --- 사건의 흐름 (아코디언) 로직 ---
+    // --- 구성 단계 (인터랙티브 그림 그래프) 데이터 및 로직 ---
     const plotData = [
-      { stage: '발단', title: '어리둥절함과 은근한 불안', desc: '고깃간에서 1원 대신 10원을 거슬러 받고 돌려줄 기회를 놓침.', psycho: '어? 왜 돈을 더 주시지? 돌려줘야 하는데... 어떡하지?' },
-      { stage: '전개', title: '유혹과 일시적 후련함', desc: '수만의 유혹으로 공과 쌍안경을 삼. 삼촌의 훈계에 찔려 물건을 버리고 남은 돈을 고깃간에 돌려줌.', psycho: '공을 사니 좋긴 한데 마음이 불편해. 에잇, 다 버려버리자! 휴, 이제 좀 살 것 같네.' },
-      { stage: '위기', title: '절망과 극심한 죄책감', desc: '수만이 돈을 요구하며 협박함. 못 이겨 숙모 돈을 훔치고, 애먼 점순이가 도둑으로 몰려 쫓겨남.', psycho: '수만이가 다 일러바치면 어쩌지? 숙모 돈이라도... 아, 나 때문에 점순이가 쫓겨나다니! 난 쓰레기야 ㅠㅠ' },
-      { stage: '절정', title: '압박감과 자백의 공포', desc: '수신(도덕) 시간에 선생님 말씀에 찔려 괴로워함. 고백하려다 실패하고 결국 넋이 나가 걷다 교통사고를 당함.', psycho: '선생님이 꼭 나보고 하시는 말씀 같아. 숨 막혀. 말해야 하는데 입이 안 떨어져...' },
-      { stage: '결말', title: '해방감, 마음이 맑아짐', desc: '병원에서 깨어난 문기가 삼촌에게 모든 잘못을 솔직하게 자백함.', psycho: '삼촌, 사실은 제가 그랬어요... 아, 이제야 내 마음의 하늘도 맑게 개었어.' }
+      { 
+        stage: '1. 발단',
+        x: '15%', y: '80%', // 그림 위 상대적 좌표 (좌측 하단)
+        page: '교과서 150쪽 05줄 ~ 151쪽 17줄',
+        plot: '문기는 숙모의 심부름으로 고깃간에 갔다가 거스름돈을 더 받게 됩니다. 현재 문기는 숨겨둔 공과 쌍안경이 없어진 것을 알고 몹시 불안해합니다.', 
+        psychology: '<span class="text-purple-700 font-bold bg-purple-100 px-2 py-0.5 rounded mr-1">[문기]</span> 어리둥절함, 의아함 ➡️ (물건을 잃어버린 현재) 불안하고 초조함',
+        conflict: '<span class="text-indigo-600 font-bold underline decoration-indigo-300 underline-offset-4 mr-1">[문기의 내적 갈등]</span> 거스름돈을 잘못 받은 사실을 정직하게 말할 것인가 말 것인가 번민함'
+      },
+      { 
+        stage: '2. 전개', 
+        x: '35%', y: '60%', // 상승 구간
+        page: '교과서 151쪽 18줄 ~ 159쪽 13줄',
+        plot: '수만의 유혹에 넘어가 함께 돈을 쓰며 잠시 즐거워합니다. 하지만 삼촌의 꾸중을 듣고 죄책감을 느낀 문기는 물건을 버리고 남은 돈을 고깃간 안마당에 던집니다.', 
+        psychology: '<span class="text-purple-700 font-bold bg-purple-100 px-2 py-0.5 rounded mr-1">[문기]</span> 일시적인 즐거움 ➡️ 양심의 가책과 괴로움 ➡️ 마음이 가벼워짐(일시적 후련함)',
+        conflict: '<span class="text-indigo-600 font-bold underline decoration-indigo-300 underline-offset-4 mr-1">[문기의 내적 갈등]</span> 삼촌에게 꾸중을 들은 후 잘못을 뉘우치며 바르게 살고 싶어 하는 마음 (양심 vs 잘못)'
+      },
+      { 
+        stage: '3. 위기', 
+        x: '55%', y: '40%', // 더 높은 상승 구간
+        page: '교과서 160쪽 1줄 ~ 163쪽 23줄',
+        plot: '돈을 돌려주었다는 말을 믿지 않는 수만이 돈을 내놓으라며 협박합니다. 견디다 못한 문기는 결국 숙모의 돈을 훔쳐 수만에게 주고, 이로 인해 점순이가 누명을 쓰고 쫓겨납니다.', 
+        psychology: '<span class="text-purple-700 font-bold bg-purple-100 px-2 py-0.5 rounded mr-1">[문기]</span> 불안, 두려움 ➡️ 분노, 원망(수만에게) ➡️ 극도의 죄책감과 미안함(점순이에게)',
+        conflict: '<span class="text-rose-600 font-bold underline decoration-rose-300 underline-offset-4 mr-1">[문기와 수만의 외적 갈등]</span> 자신의 잘못을 바로잡으려는 문기와 협박하는 수만의 대립<br><span class="text-indigo-600 font-bold underline decoration-indigo-300 underline-offset-4 mt-2 mr-1 inline-block">[문기의 내적 갈등]</span> 무고한 점순이가 쫓겨나자 느끼는 심한 죄책감'
+      },
+      { 
+        stage: '4. 절정', 
+        x: '75%', y: '20%', // 산의 꼭대기
+        page: '교과서 164쪽 1줄 ~ 167쪽 4줄',
+        plot: '수신 시간에 선생님의 훈화를 듣고 자백을 결심하지만, 끝내 용기를 내지 못합니다. 넋이 나간 채 거리를 걷던 문기는 그만 교통사고를 당하게 됩니다.', 
+        psychology: '<span class="text-purple-700 font-bold bg-purple-100 px-2 py-0.5 rounded mr-1">[문기]</span> 숨이 막힘, 암담함, 두려움, 극도의 심리적 압박감',
+        conflict: '<span class="text-indigo-600 font-bold underline decoration-indigo-300 underline-offset-4 mr-1">[문기의 내적 갈등 최고조]</span> 자신의 모든 잘못을 선생님께 고백할 것인가 끝까지 숨길 것인가에 대한 번민'
+      },
+      { 
+        stage: '5. 결말', 
+        x: '90%', y: '80%', // 하강 후 우측 하단
+        page: '교과서 167쪽 5줄 ~ 끝',
+        plot: '병원에서 정신을 차린 문기가 삼촌에게 그동안 있었던 일과 자신의 허물을 모두 숨김없이 고백합니다.', 
+        psychology: '<span class="text-purple-700 font-bold bg-purple-100 px-2 py-0.5 rounded mr-1">[문기]</span> 모든 무거운 짐을 벗어던짐 ➡️ 마음이 가벼워짐, 맑아짐 (해방감)',
+        conflict: '<span class="text-emerald-600 font-bold underline decoration-emerald-300 underline-offset-4 mr-1">[갈등의 완전 해소]</span> 정직한 고백을 통해 스스로를 짓누르던 내적 고통에서 완전히 벗어남'
+      }
     ];
-    let activeStage = null;
 
-    function renderPlot() {
-      const container = document.getElementById('plot-accordion');
+    let activePlotStage = 0; // 초깃값: 발단
+
+    function renderPlotGraph() {
+      const container = document.getElementById('plot-graph-buttons');
       let html = '';
+      
       plotData.forEach((item, index) => {
-        const isActive = activeStage === index;
+        const isActive = activePlotStage === index;
+        
+        // 글자가 절대 잘리거나 겹치지 않도록 whitespace-nowrap 적용, 넉넉한 padding 확보
         html += `
-          <div class="border border-slate-200 rounded-xl overflow-hidden cursor-pointer hover:border-sky-300 transition-colors" onclick="toggleStage(${index})">
-            <div class="p-4 flex items-center justify-between ${isActive ? 'bg-sky-50' : 'bg-white'}">
-              <div class="flex items-center gap-4">
-                <span class="bg-sky-500 text-white font-bold px-3 py-1 rounded-lg text-sm w-16 text-center">${item.stage}</span>
-                <span class="font-bold text-slate-700">${item.title}</span>
-              </div>
-              <i data-lucide="arrow-right" class="transform transition-transform ${isActive ? 'rotate-90 text-sky-500' : 'text-slate-300'}"></i>
-            </div>
-            ${isActive ? `
-              <div class="p-4 bg-slate-50 border-t border-slate-100 text-sm md:text-base animate-fade-in">
-                <p class="text-slate-700 mb-3"><strong class="text-slate-900">핵심 사건:</strong> ${item.desc}</p>
-                <div class="bg-white p-3 rounded-lg border border-sky-100 relative">
-                  <div class="absolute -left-2 top-4 w-4 h-4 bg-white border-l border-t border-sky-100 transform -rotate-45"></div>
-                  <span class="font-bold text-sky-600">💭 문기의 속마음:</span> ${item.psycho}
-                </div>
-              </div>
-            ` : ''}
-          </div>
+          <button 
+            onclick="selectPlotStage(${index})"
+            style="left: ${item.x}; top: ${item.y}; transform: translate(-50%, -50%);"
+            class="absolute pointer-events-auto px-4 py-2 sm:px-6 sm:py-2.5 rounded-full font-bold text-sm sm:text-base whitespace-nowrap shadow-md transition-all duration-300 focus:outline-none hover:scale-110 border-2
+                   ${isActive 
+                     ? 'bg-sky-500 text-white border-sky-400 shadow-sky-300/50 scale-110 z-30' 
+                     : 'bg-white/95 backdrop-blur-sm text-slate-700 border-slate-300 hover:border-sky-400 hover:text-sky-600 z-20'}"
+          >
+            ${item.stage}
+          </button>
         `;
       });
       container.innerHTML = html;
-      lucide.createIcons(); // 동적으로 생성된 아이콘 렌더링
+      
+      // 상세 정보 렌더링
+      renderPlotDetail();
     }
 
-    function toggleStage(index) {
-      activeStage = activeStage === index ? null : index;
-      renderPlot();
+    function selectPlotStage(index) {
+      activePlotStage = index;
+      renderPlotGraph(); // 활성 상태 업데이트 및 재렌더링
     }
-    renderPlot(); // 초기 렌더링
+
+    function renderPlotDetail() {
+      const item = plotData[activePlotStage];
+      const detailContainer = document.getElementById('plot-detail-card');
+      
+      // 자연스러운 전환 애니메이션
+      detailContainer.style.opacity = '0';
+      
+      setTimeout(() => {
+        detailContainer.innerHTML = `
+          <div class="p-5 sm:p-6 bg-white animate-fade-in">
+            <div class="flex items-center gap-3 mb-6 border-b border-sky-100 pb-4">
+              <span class="bg-sky-500 text-white font-bold px-5 py-1.5 rounded-full text-lg shadow-sm">${item.stage.replace(/^[0-9]\.\s/, '')} 단계</span>
+            </div>
+            
+            <div class="grid gap-5">
+              <!-- 교과서 페이지 -->
+              <div class="flex items-start gap-4">
+                <div class="mt-1 bg-blue-100 text-blue-600 p-2 rounded-lg shrink-0"><i data-lucide="book-open" class="w-5 h-5"></i></div>
+                <div>
+                  <strong class="text-blue-800 block mb-1 text-sm uppercase tracking-wider">교과서 페이지</strong>
+                  <p class="text-slate-700 font-medium">${item.page}</p>
+                </div>
+              </div>
+              
+              <!-- 줄거리 -->
+              <div class="flex items-start gap-4">
+                <div class="mt-1 bg-emerald-100 text-emerald-600 p-2 rounded-lg shrink-0"><i data-lucide="file-text" class="w-5 h-5"></i></div>
+                <div>
+                  <strong class="text-emerald-800 block mb-1 text-sm uppercase tracking-wider">줄거리 요약</strong>
+                  <p class="text-slate-700 leading-relaxed">${item.plot}</p>
+                </div>
+              </div>
+              
+              <!-- 심리 변화 -->
+              <div class="flex items-start gap-4">
+                <div class="mt-1 bg-purple-100 text-purple-600 p-2 rounded-lg shrink-0"><i data-lucide="heart" class="w-5 h-5"></i></div>
+                <div>
+                  <strong class="text-purple-800 block mb-1 text-sm uppercase tracking-wider">인물의 심리 변화</strong>
+                  <p class="text-slate-700 leading-relaxed">${item.psychology}</p>
+                </div>
+              </div>
+              
+              <!-- 갈등 양상 -->
+              <div class="flex items-start gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                <div class="bg-rose-100 text-rose-600 p-2 rounded-lg shrink-0"><i data-lucide="swords" class="w-5 h-5"></i></div>
+                <div>
+                  <strong class="text-rose-800 block mb-1 text-sm uppercase tracking-wider">갈등의 양상</strong>
+                  <p class="text-slate-700 leading-relaxed">${item.conflict}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+        lucide.createIcons();
+        detailContainer.style.opacity = '1';
+        detailContainer.style.transition = 'opacity 0.3s ease-in-out';
+      }, 100);
+    }
+
+    // 초기 그림 그래프 렌더링
+    renderPlotGraph();
 
     // --- 마무리 퀴즈 로직 ---
     const quizzes = [
@@ -372,7 +872,7 @@
           `;
         });
 
-        html += `</div>`; // space-y-2 닫기
+        html += `</div>`; 
 
         if (showResults) {
           const isAnswerCorrect = quizAnswers[q.id] === q.answer;
@@ -383,12 +883,10 @@
             </div>
           `;
         }
-        
-        html += `</div>`; // 전체 퀴즈 박스 닫기
+        html += `</div>`;
       });
       container.innerHTML = html;
 
-      // 푸터(제출/결과 화면) 렌더링
       const allAnswered = Object.keys(quizAnswers).length === quizzes.length;
       if (!showResults) {
         footer.innerHTML = `
@@ -412,7 +910,7 @@
         `;
       }
     }
-    renderQuiz(); // 초기 렌더링
+    renderQuiz(); 
 
   </script>
 </body>
