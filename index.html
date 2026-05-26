@@ -213,7 +213,7 @@
                 <strong class="text-rose-600 text-base shrink-0 w-[6.5rem] whitespace-nowrap">평면적 인물:</strong>
                 <div class="flex-1">
                   <p class="break-keep">소설의 처음부터 끝까지 성격이 변하지 않는 인물</p>
-                  <div class="mt-1.5 flex items-center gap-1.5"><span class="bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded text-xs font-medium">하늘은 맑건만</span> 👉 <strong class="text-rose-600 text-base">수만</strong></div>
+                  <div class="mt-1.5 flex items-center gap-1.5"><span class="bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded text-xs font-medium">하늘은 맑건만</span> 👉 <strong class="text-sky-600 text-base">수만</strong></div>
                 </div>
               </li>
             </ul>
@@ -232,7 +232,7 @@
                 <strong class="text-rose-600 text-base shrink-0 w-[6.5rem] whitespace-nowrap">반동 인물:</strong>
                 <div class="flex-1">
                   <p class="break-keep">주인공과 대립하며 갈등하는 인물</p>
-                  <div class="mt-1.5 flex items-center gap-1.5"><span class="bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded text-xs font-medium">하늘은 맑건만</span> 👉 <strong class="text-rose-600 text-base">수만</strong></div>
+                  <div class="mt-1.5 flex items-center gap-1.5"><span class="bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded text-xs font-medium">하늘은 맑건만</span> 👉 <strong class="text-sky-600 text-base">수만</strong></div>
                 </div>
               </li>
             </ul>
@@ -311,50 +311,76 @@
       <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-sky-100">
         <h2 class="text-xl font-bold text-center mb-6 text-slate-700">소설 『하늘은 맑건만』의 구성 단계</h2>
         
-        <!-- 대화형 그림 그래프 영역 -->
+        <!-- 대화형 그림 그래프 영역 (비율 고정으로 찌그러짐 방지) -->
         <div class="relative w-full max-w-3xl mx-auto rounded-xl border border-slate-200 bg-slate-50 mb-8 shadow-sm aspect-[4/3] sm:aspect-[16/9] flex items-center justify-center overflow-hidden">
           
+          <!-- 만약 그림 파일 로드 실패 시 나타나는 백업용 가이드 라인 -->
           <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-30" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M 5 85 L 35 60 L 55 40 L 75 20 L 95 85" fill="none" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4"></path>
           </svg>
 
+          <!-- 사용자가 업로드한 원본 그림 파일 활용 -->
           <img src="구성 단계.png" alt="구성 단계 산 모양 그래프" class="absolute inset-0 w-full h-full object-contain z-10 block" onerror="this.style.opacity='0'">
           
+          <!-- ★ 추가 요청된 화살표 및 텍스트 오버레이 영역 ★ -->
           <div class="absolute inset-0 w-full h-full pointer-events-none z-15">
+            
+            <!-- SVG 화살표 (두께 약 3mm, 버튼간 선과 완벽히 평행, 길이 약 60mm 맞춰 조정) -->
             <svg class="absolute inset-0 w-full h-full overflow-visible">
               <defs>
+                <!-- 우상향 화살표 머리 -->
                 <marker id="arrow-up" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
                   <path d="M 0 2 L 8 5 L 0 8 z" fill="#ef4444" />
                 </marker>
+                <!-- 우하향 화살표 머리 -->
                 <marker id="arrow-down" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto">
                   <path d="M 0 2 L 8 5 L 0 8 z" fill="#3b82f6" />
                 </marker>
               </defs>
-              <line x1="30%" y1="52%" x2="50%" y2="32%" stroke="#ef4444" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow-up)" />
+              
+              <!-- 전개 -> 위기 사이 (상승 화살표, 길이를 파란 화살표에 맞추고 겹침을 방지하기 위해 이동 조정) -->
+              <line x1="28%" y1="56%" x2="48%" y2="36%" stroke="#ef4444" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow-up)" />
+              
+              <!-- 절정 -> 결말 사이 (하강 화살표, 이전 변경점 유지) -->
               <line x1="74%" y1="38%" x2="81%" y2="66%" stroke="#3b82f6" stroke-width="8" stroke-linecap="round" marker-end="url(#arrow-down)" />
             </svg>
 
-            <!-- 오버레이 텍스트 요소들 -->
+            <!-- 1. 발단 오른쪽 옆 (발단 버튼(80%)과 정확히 높이 정렬) -->
             <div class="absolute" style="left: 25%; top: 80%; transform: translateY(-50%);">
               <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-slate-200 text-xs sm:text-sm font-bold text-slate-700 shadow-md whitespace-nowrap">갈등 실마리</span>
             </div>
+
+            <!-- 2. 전개와 위기 사이 -->
             <div class="absolute" style="left: 39%; top: 42%; transform: translate(-100%, -50%);">
               <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-red-200 text-xs sm:text-sm font-bold text-red-600 shadow-md whitespace-nowrap">갈등 증가</span>
             </div>
+
+            <!-- 3. 절정 위 (4. 절정 버튼 바로 위쪽으로 이동) -->
             <div class="absolute" style="left: 75%; top: 12%; transform: translate(-50%, -100%);">
               <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-purple-200 text-xs sm:text-sm font-bold text-purple-700 shadow-md whitespace-nowrap">갈등 최고조</span>
             </div>
+
+            <!-- 4. 절정과 결말 사이 -->
             <div class="absolute z-20" style="left: 78%; top: 52%; transform: translate(-100%, -50%);">
               <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-blue-200 text-xs sm:text-sm font-bold text-blue-600 shadow-md whitespace-nowrap">갈등 감소</span>
             </div>
+
+            <!-- 5. 결말 왼쪽 옆 (결말 버튼과 겹치지 않게 띄움) -->
             <div class="absolute" style="left: 82%; top: 80%; transform: translate(-100%, -50%);">
               <span class="px-2 sm:px-3 py-1.5 bg-white/95 backdrop-blur-md rounded-lg border-2 border-emerald-200 text-xs sm:text-sm font-bold text-emerald-600 shadow-md whitespace-nowrap">갈등 해소</span>
             </div>
+
           </div>
+
+          <!-- 자바스크립트로 렌더링될 버튼 영역 (그림 위에 오버레이) -->
           <div id="plot-graph-buttons" class="absolute inset-0 w-full h-full pointer-events-none z-20"></div>
         </div>
 
-        <div id="plot-detail-card" class="bg-white rounded-2xl shadow-md border-t-4 border-sky-500 overflow-hidden min-h-[280px]"></div>
+        <!-- 클릭 시 나타나는 상세 정보 카드 영역 -->
+        <div id="plot-detail-card" class="bg-white rounded-2xl shadow-md border-t-4 border-sky-500 overflow-hidden min-h-[280px]">
+          <!-- 내용이 자바스크립트를 통해 동적으로 들어갑니다 -->
+        </div>
+
       </div>
     </div>
 
@@ -655,10 +681,31 @@
     <!-- ★ 수정된 탭 내용: 형성 평가 ★ -->
     <div id="section-quiz" class="tab-content hidden animate-fade-in max-w-2xl mx-auto">
       <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-sky-100">
-        <div class="text-center mb-8">
+        <div class="text-center mb-6">
           <h2 class="text-2xl font-bold text-slate-800 mb-2">실력 쑥쑥 형성 평가! ✍️</h2>
           <p class="text-slate-500">배운 내용을 얼마나 잘 기억하고 있는지 확인해 볼까요?</p>
         </div>
+
+        <!-- ★ 형성 평가용 학년/반/번호/이름 정보 입력란 ★ -->
+        <div class="flex flex-wrap justify-center gap-3 sm:gap-5 mb-8 bg-sky-50 p-5 rounded-xl border border-sky-100 shadow-inner">
+          <div class="flex items-center gap-2">
+            <label for="quiz-grade" class="font-bold text-sky-800 whitespace-nowrap text-sm sm:text-base">학년</label>
+            <input type="number" id="quiz-grade" class="w-14 sm:w-16 p-2 rounded-lg border border-sky-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 outline-none text-center shadow-sm" min="1" max="6">
+          </div>
+          <div class="flex items-center gap-2">
+            <label for="quiz-class" class="font-bold text-sky-800 whitespace-nowrap text-sm sm:text-base">반</label>
+            <input type="number" id="quiz-class" class="w-14 sm:w-16 p-2 rounded-lg border border-sky-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 outline-none text-center shadow-sm" min="1" max="20">
+          </div>
+          <div class="flex items-center gap-2">
+            <label for="quiz-number" class="font-bold text-sky-800 whitespace-nowrap text-sm sm:text-base">번호</label>
+            <input type="number" id="quiz-number" class="w-14 sm:w-16 p-2 rounded-lg border border-sky-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 outline-none text-center shadow-sm" min="1" max="50">
+          </div>
+          <div class="flex items-center gap-2 ml-0 sm:ml-2">
+            <label for="quiz-name" class="font-bold text-sky-800 whitespace-nowrap text-sm sm:text-base">이름</label>
+            <input type="text" id="quiz-name" class="w-24 sm:w-32 p-2 rounded-lg border border-sky-200 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 outline-none text-center shadow-sm" placeholder="홍길동">
+          </div>
+        </div>
+
         <div id="quiz-container" class="space-y-8"></div>
         <div id="quiz-footer" class="mt-8 text-center"></div>
       </div>
@@ -808,7 +855,7 @@
     }
     renderPlotGraph();
 
-    // --- 구글 시트 연동 (웹앱 배포용) 로직 ---
+    // --- 구글 시트 연동 (내용 정리) 로직 ---
     function submitQnA() {
       const grade = document.getElementById('student-grade').value.trim();
       const stuClass = document.getElementById('student-class').value.trim();
@@ -905,8 +952,8 @@
       // 세트 3
       [
         { q: "문기와 수만은 거스름돈을 쓰면서 서로에게 책임을 철저히 떠넘기며 자신들의 잘못을 합리화하였다.", options: ["O", "X"], a: 1, expl: "거스름돈을 쓸 당시 서로에게 책임을 떠넘기며 싸우지는 않았습니다. 오히려 서로 손이 맞아 돈을 쓰며 잠시 즐거워했습니다." },
-        { q: "문기는 수만에게 남은 돈을 돌려주었다고 말하지만, 수만은 믿지 않고 협박한다. 이는 어떤 갈등인가?", options: ["내적 갈등", "외적 갈등"], a: 1, expl: "문기의 입장과 수만이의 입장이 외부에서 직접적으로 충돌하고 대립하는 '인물과 인물 간의 외적 갈등'입니다." },
-        { q: "친구의 꼬임에 넘어가 잘못을 저지르지만, 뉘우칠 줄 아는 소심하고 순진한 성격의 인물은?", options: ["문기", "수만", "삼촌", "점순이"], a: 0, expl: "주인공 문기는 우유부단하여 잘못을 저지르기도 하지만, 끊임없이 양심의 가책을 느끼고 결국 반성하는 입체적 인물입니다." },
+        { q: "문기는 수만에게 남은 돈을 고깃간 집에 돌려주었다고 이야기하지만, 수만은 문기의 말을 믿지 않고 따라 다니며 협박한다. 이는 어떤 갈등인가?", options: ["내적 갈등", "외적 갈등"], a: 1, expl: "문기의 입장과 수만이의 입장이 외부에서 직접적으로 충돌하고 대립하는 '인물과 인물 간의 외적 갈등'입니다." },
+        { q: "친구의 꼬임에 넘어가 잘못을 저지르지만, 잘못을 뉘우칠 줄 아는 소심하고 순진한 성격의 인물은?", options: ["문기", "수만", "삼촌", "점순이"], a: 0, expl: "주인공 문기는 우유부단하여 잘못을 저지르기도 하지만, 끊임없이 양심의 가책을 느끼고 결국 반성하는 입체적 인물입니다." },
         { q: "인물의 마음속에서, 또는 인물과 환경 사이에서 대립과 충돌이 일어나 서로 복잡하게 얽혀 있는 상태를 일컫는 말은?", options: ["갈등", "개연성", "허구성", "주제"], a: 0, expl: "칡과 등나무가 얽혀있는 모습에서 유래한 '갈등'은 소설에 긴장감을 불어넣는 핵심 요소입니다." },
         { q: "문기가 찾고 있던 공과 쌍안경은 숙모가 장롱 깊숙이 숨겨 두고 있었다.", options: ["O", "X"], a: 1, expl: "공과 쌍안경은 문기가 숨겨두었지만 삼촌에게 발각되었고, 화가 난 삼촌이 모두 내다 버렸습니다." }
       ],
@@ -923,8 +970,8 @@
         { q: "인물의 마음속에서 두 가지 이상의 생각이나 바람이 대립하고 충돌하는 현상을 '외적 갈등'이라고 한다.", options: ["O", "X"], a: 1, expl: "마음속에서 일어나는 생각과 감정의 충돌은 외적 갈등이 아닌 '내적 갈등'입니다." },
         { q: "점순이는 문기가 훔친 돈 때문에 누명을 쓰고 집에서 쫓겨나게 되는 억울한 인물이다.", options: ["O", "X"], a: 0, 무리: "문기가 숙모의 지전을 훔쳤지만, 당시 심부름을 왔던 점순이가 도둑으로 몰려 쫓겨나면서 문기의 내적 갈등은 더욱 깊어집니다." },
         { q: "수만이 문기를 끊임없이 협박하며 돈을 요구하여 갈등이 심화되는 상황은 소설의 어느 단계에 해당하는가?", options: ["발단", "전개", "위기", "결말"], a: 2, expl: "갈등이 점점 더 심화되며 새로운 사건(문기가 숙모 돈을 훔침)이 발생하고 극으로 치닫는 '위기' 단계입니다." },
-        { q: "문기가 교통사고를 당한 후 병원에서 보인 행동으로 가장 알맞은 것은?", options: ["경찰에 신고했다", "끝까지 숨겼다", "삼촌에게 모두 자백했다", "점순이에게 사과했다"], a: 2, expl: "의식을 회복한 문기는 삼촌에게 그동안 있었던 일과 자신의 모든 허물을 숨김없이 솔직하게 자백합니다." },
-        { q: "다음 중 소설 속 '외적 갈등'의 사례로 가장 적절한 것은?", options: ["양심과 유혹의 대립", "문기와 수만의 대립", "문기의 뼈저린 죄책감", "정직과 거짓 사이의 번민"], a: 1, expl: "나머지는 모두 문기의 마음속에서 벌어지는 내적 갈등이며, '문기와 수만의 대립'만이 외부 인물 간의 외적 갈등입니다." }
+        { q: "문기가 교통사고를 당하고 병원에서 의식을 되찾은 후 한 행동으로 가장 알맞은 것은?", options: ["경찰에 신고했다", "끝까지 숨겼다", "삼촌에게 모두 자백했다", "점순이에게 사과했다"], a: 2, expl: "의식을 회복한 문기는 삼촌에게 그동안 있었던 일과 자신의 모든 허물을 숨김없이 솔직하게 자백합니다." },
+        { q: "다음 중 소설 속 '외적 갈등'의 사례로 가장 적절한 것은?", options: ["양심과 유혹의 대립", "문기와 수만의 대립", "문기의 뼈저린 죄책감", "정직과 거짓 사이의 번민"], a: 1, expl: "나مر지는 모두 문기의 마음속에서 벌어지는 내적 갈등이며, '문기와 수만의 대립'만이 외부 인물 간의 외적 갈등입니다." }
       ]
     ];
 
@@ -1053,7 +1100,7 @@
     
     renderSummaryQuiz();
 
-    // --- ★ 새로운 형성 평가 (10문항) 로직 ★ ---
+    // --- 형성 평가 (10문항) 로직 ---
     const quizzes = [
       { id: 1, question: "다음 중 소설의 발단 부분에서 문기가 겪는 상황으로 알맞은 것은?", options: ["숙모의 지갑에서 돈을 훔친다.", "길에서 우연히 쌍안경을 줍는다.", "고깃간에서 거스름돈을 더 받게 된다.", "수만이가 문기에게 돈을 나누어 쓰자고 제안한다."], answer: 2, explanation: "문기가 고깃간에서 1원짜리 지폐를 내고 10원짜리로 착각한 주인에게 거스름돈을 더 받으면서 모든 사건과 갈등이 시작됩니다." },
       { id: 2, question: "소설에 등장하는 지전, 고깃간, 둥구미, 은전 등의 소재를 통해 알 수 있는 이 글의 시대적 배경은 언제인가요?", options: ["1930년대", "1950년대", "1970년대", "1990년대"], answer: 0, explanation: "지전, 둥구미 등의 어휘를 통해 이 소설이 1930년대 일제 강점기를 배경으로 하고 있음을 알 수 있습니다." },
@@ -1076,9 +1123,75 @@
       renderQuiz();
     }
 
+    // ★ 형성 평가 채점 및 구글 시트 전송 통합 기능 ★
     function checkResults() {
+      // 1. 학번/이름 입력 체크
+      const grade = document.getElementById('quiz-grade').value.trim();
+      const stuClass = document.getElementById('quiz-class').value.trim();
+      const number = document.getElementById('quiz-number').value.trim();
+      const name = document.getElementById('quiz-name').value.trim();
+
+      if (!grade || !stuClass || !number || !name) {
+        alert('학년, 반, 번호, 이름을 먼저 입력해 주세요. 작성 후 채점과 구글 시트 전송이 진행됩니다.');
+        return;
+      }
+
+      // 2. 채점 완료 처리 및 화면 업데이트
       showResults = true;
       renderQuiz();
+
+      // 3. 스프레드시트 기록용 결과 데이터 구성
+      let score = 0;
+      let responses = []; // 응답 번호 (1,2,3,4)
+      let corrects = [];  // 정오 (O, X)
+
+      quizzes.forEach(q => {
+        const studentSelect = quizAnswers[q.id];
+        const isCorrect = studentSelect === q.answer;
+        if (isCorrect) score++;
+
+        responses.push(studentSelect !== undefined ? (studentSelect + 1) : "무응답");
+        corrects.push(isCorrect ? "O" : "X");
+      });
+
+      const quizPayload = {
+        grade: grade,
+        stuClass: stuClass,
+        number: number,
+        name: name,
+        totalScore: score + " / 10",
+        // 문항별 응답(1~10)
+        r1: responses[0], r2: responses[1], r3: responses[2], r4: responses[3], r5: responses[4],
+        r6: responses[5], r7: responses[6], r8: responses[7], r9: responses[8], r10: responses[9],
+        // 문항별 정오(1~10)
+        c1: corrects[0], c2: corrects[1], c3: corrects[2], c4: corrects[3], c5: corrects[4],
+        c6: corrects[5], c7: corrects[6], c8: corrects[7], c9: corrects[8], c10: corrects[9]
+      };
+
+      // 4. google.script.run 연동 실행
+      const footer = document.getElementById('quiz-footer');
+      if (typeof google !== 'undefined' && typeof google.script !== 'undefined') {
+        footer.innerHTML += `<p class="text-sm text-sky-600 mt-2 animate-pulse" id="sheet-status">📊 구글 스프레드시트에 형성 평가 결과를 전송하는 중입니다...</p>`;
+        
+        google.script.run
+          .withSuccessHandler(function() {
+            const statusEl = document.getElementById('sheet-status');
+            if (statusEl) {
+              statusEl.innerText = "✅ 학생의 평가 데이터가 구글 시트에 성공적으로 연동되었습니다!";
+              statusEl.className = "text-sm text-green-600 font-bold mt-2";
+            }
+          })
+          .withFailureHandler(function(error) {
+            const statusEl = document.getElementById('sheet-status');
+            if (statusEl) {
+              statusEl.innerText = "❌ 구글 시트 연동 실패: " + error.message;
+              statusEl.className = "text-sm text-red-600 font-bold mt-2";
+            }
+          })
+          .submitQuizData(quizPayload); // Apps Script 서버 함수 호출
+      } else {
+        footer.innerHTML += `<p class="text-sm text-amber-600 mt-2">ℹ️ 구글 웹앱 외부 환경입니다. (웹앱 배포 상태에서만 구글 시트 전송 기능이 활성화됩니다.)</p>`;
+      }
     }
 
     function resetQuiz() {
@@ -1150,7 +1263,7 @@
       if (!showResults) {
         footer.innerHTML = `
           <button onclick="checkResults()" ${!allAnswered ? 'disabled' : ''} class="${allAnswered ? 'bg-sky-500 hover:bg-sky-600' : 'bg-slate-300'} text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md">
-            정답 확인하기
+            제출하고 채점하기
           </button>
         `;
       } else {
@@ -1159,7 +1272,7 @@
         footer.innerHTML = `
           <div class="animate-fade-in text-center">
             <div class="text-4xl mb-2">${emoji.split(' ')[0]}</div>
-            <h3 class="text-2xl font-bold text-slate-800 mb-4">
+            <h3 class="text-2xl font-bold text-slate-800 mb-2">
               ${quizzes.length}문제 중 <span class="text-sky-600">${score}</span>문제 정답!
             </h3>
             <p class="text-lg text-slate-600 mb-4 font-bold">${emoji.split(' ')[1]}</p>
